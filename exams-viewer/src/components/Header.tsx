@@ -1,20 +1,24 @@
 import React from "react";
 import "../css/header.scss";
-import { AppState } from "../models/AppState";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  activateDiagnosis,
+  activateFollowUp,
+  showInfoArea,
+} from "../store/store";
 
-export const Header: React.FC<AppState> = (props): JSX.Element => {
+export const Header: React.FC = (): JSX.Element => {
+  const [state, dispatch] = useHeader();
+
   return (
     <header>
       <div className="left-toolbar-area">
         <div className="show-info-area">
           <button
             onClick={() => {
-              props.dispatch({
-                type: "SHOW_INFO_AREA",
-                payload: { showInfoArea: !props.state.showInfoArea },
-              });
+              dispatch(showInfoArea({ showInfoArea: !state.showInfoArea }));
             }}
-            disabled={props.state.disableShowInfoBtn}
+            disabled={state.disableShowInfoBtn}
           >
             Show info
           </button>
@@ -22,18 +26,14 @@ export const Header: React.FC<AppState> = (props): JSX.Element => {
         <div className="diagnosis-follow-up-toolbar-area">
           <button
             onClick={() => {
-              props.dispatch({
-                type: "ACTIVATE_DIAGNOSIS",
-              });
+              dispatch(activateDiagnosis());
             }}
           >
             Diagnosis
           </button>
           <button
             onClick={() => {
-              props.dispatch({
-                type: "ACTIVATE_FOLLOWUP",
-              });
+              dispatch(activateFollowUp());
             }}
           >
             Follow Up
@@ -51,3 +51,10 @@ export const Header: React.FC<AppState> = (props): JSX.Element => {
     </header>
   );
 };
+
+function useHeader(): [any, any] {
+  const state = useSelector((state: any) => state);
+  const dispatch = useDispatch();
+
+  return [state, dispatch];
+}
