@@ -5,6 +5,7 @@ import "./css/app.scss";
 
 const initialState = {
   showInfoArea: false,
+  diagnosisIsActive: false,
 };
 
 const reducer = (
@@ -21,6 +22,22 @@ const reducer = (
       return {
         ...state,
         showInfoArea: false,
+      };
+    case "ACTIVATE_DIAGNOSIS":
+      return {
+        ...state,
+        diagnosisIsActive: true,
+        disableShowInfoBtn: false,
+        mngVisibilityDiagnosis: " show",
+        mngVisibilityFollowup: " hide",
+      };
+    case "ACTIVATE_FOLLOWUP":
+      return {
+        ...state,
+        diagnosisIsActive: false,
+        disableShowInfoBtn: true,
+        mngVisibilityDiagnosis: " hide",
+        mngVisibilityFollowup: " show",
       };
     default:
       return state;

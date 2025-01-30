@@ -9,19 +9,35 @@ export const Header: React.FC<AppState> = (props): JSX.Element => {
         <div className="show-info-area">
           <button
             onClick={() => {
-              console.log("Show info area", props.state.showInfoArea);
               props.dispatch({
                 type: "SHOW_INFO_AREA",
                 payload: { showInfoArea: !props.state.showInfoArea },
               });
             }}
+            disabled={props.state.disableShowInfoBtn}
           >
             Show info
           </button>
         </div>
         <div className="diagnosis-follow-up-toolbar-area">
-          <button>Diagnosis</button>
-          <button>Follow Up</button>
+          <button
+            onClick={() => {
+              props.dispatch({
+                type: "ACTIVATE_DIAGNOSIS",
+              });
+            }}
+          >
+            Diagnosis
+          </button>
+          <button
+            onClick={() => {
+              props.dispatch({
+                type: "ACTIVATE_FOLLOWUP",
+              });
+            }}
+          >
+            Follow Up
+          </button>
         </div>
         <div className="eyes-toolbar-area">
           <button>Right eye</button>
