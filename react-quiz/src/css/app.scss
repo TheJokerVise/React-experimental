@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
+
+body {
+  background-color: #222;
+}
+
+h1 {
+  font-family: "Codystar";
+  color: #fff;
+}
+
+.app-header {
+  display: flex;
+  column-gap: 10px;
+}
+
+/**
+ * Loader
+ */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 1.6rem;
+  color: #ccc;
+  font-size: 1.4rem;
+}
+
+.timer {
+  float: left;
+  font-size: 1.8rem;
+  color: #ccc;
+  border: 2px solid var(--color-dark);
+  padding: 1.35rem 2.8rem;
+  border-radius: 100px;
+}
+
+.loader {
+  width: 50px;
+  height: 24px;
+  background: radial-gradient(circle closest-side, currentColor 90%, #dfd8d800) 0%
+      50%,
+    radial-gradient(circle closest-side, currentColor 90%, #e6dfdf00) 50% 50%,
+    radial-gradient(circle closest-side, currentColor 90%, #e6e1e100) 100% 50%;
+  background-size: calc(100% / 3) 12px;
+  background-repeat: no-repeat;
+  animation: loader 1s infinite linear;
+}
+
+@keyframes loader {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
