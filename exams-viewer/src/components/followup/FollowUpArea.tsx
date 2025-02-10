@@ -1,13 +1,18 @@
-import { useSelector } from "react-redux";
+import { useAppStateManager } from "../../services/AppStateManager";
+import { HeaderState } from "../../models/HeaderState";
 
 export const FollowUpArea: React.FC = (): JSX.Element => {
-  const [state] = UseFollowUpArea();
+  const [appHeaderStore] = UseFollowUpArea();
 
-  return <div className={"follow-up-area" + state.mngVisibilityFollowup}></div>;
+  return (
+    <div className={"follow-up-area" + appHeaderStore.mngVisibilityFollowup}>
+      FOLLOW UP AREA
+    </div>
+  );
 };
 
-function UseFollowUpArea(): [any] {
-  const state = useSelector((state: any) => state);
+function UseFollowUpArea(): [HeaderState] {
+  const { slice } = useAppStateManager<HeaderState>("header");
 
-  return [state];
+  return [slice];
 }

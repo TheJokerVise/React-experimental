@@ -1,7 +1,6 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-// Primo slice
-const initialAppState = {
+const initialState = {
   showInfoArea: false,
   disableShowInfoBtn: false,
   diagnosisIsActive: true,
@@ -10,8 +9,8 @@ const initialAppState = {
 };
 
 const appSlice = createSlice({
-  name: "app",
-  initialState: initialAppState,
+  name: "header",
+  initialState,
   reducers: {
     showInfoArea: (state, action) => {
       state.showInfoArea = action.payload.showInfoArea;
@@ -31,34 +30,35 @@ const appSlice = createSlice({
   },
 });
 
-// Secondo slice
-const initialUserState = {
-  name: "",
-  age: 0,
+const initialpatientState = {
+  id: "1",
 };
 
-const userSlice = createSlice({
-  name: "user",
-  initialState: initialUserState,
+const patientSlice = createSlice({
+  name: "patient",
+  initialState: initialpatientState,
   reducers: {
-    setName: (state, action) => {
-      state.name = action.payload.name;
-    },
-    setAge: (state, action) => {
-      state.age = action.payload.age;
+    setId: (state, action) => {
+      state.id = action.payload.id;
     },
   },
 });
 
 export const { showInfoArea, activateDiagnosis, activateFollowUp } =
   appSlice.actions;
-export const { setName, setAge } = userSlice.actions;
+export const { setId } = patientSlice.actions;
 
 const store = configureStore({
   reducer: {
-    app: appSlice.reducer,
-    user: userSlice.reducer,
+    header: appSlice.reducer,
+    patient: patientSlice.reducer,
   },
 });
+
+/**
+ * store.getState: This function returns the current state of the application.
+ * The return type of this function is an object that contains all the slices of the state defined in the store's reducer.
+ */
+export type RootState = ReturnType<typeof store.getState>;
 
 export default store;

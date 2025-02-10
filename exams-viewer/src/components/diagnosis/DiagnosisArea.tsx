@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppStateManager } from "../../services/AppStateManager";
+import { HeaderState } from "../../models/HeaderState";
 
 export const DiagnosisArea: React.FC = (): JSX.Element => {
-  const [state, dates, exams, anamnesi, showInfoAreaCls] = UseDiagnosisArea();
+  const [appHeaderStore, dates, exams, anamnesi, showInfoAreaCls] =
+    UseDiagnosisArea();
 
   return (
-    <div className={"diagnosis-area" + state.mngVisibilityDiagnosis}>
+    <div className={"diagnosis-area" + appHeaderStore.mngVisibilityDiagnosis}>
       <div className={"left-info-area" + showInfoAreaCls}>
         <div className="dates-reference-area">
           <div className="dates-list">
@@ -36,20 +38,26 @@ export const DiagnosisArea: React.FC = (): JSX.Element => {
         <div className="exams-area"></div>
         <div className="interviews-area"></div>
       </div>
-      <div className={"right-exams-area" + showInfoAreaCls}></div>
+      <div className={"right-exams-area" + showInfoAreaCls}>DIAGNOSIS AREA</div>
     </div>
   );
 };
 
-function UseDiagnosisArea(): [any, string[], string[], string[], string] {
-  const user = useSelector((state: any) => state.user);
-  const state = useSelector((state: any) => state);
+function UseDiagnosisArea(): [
+  HeaderState,
+  string[],
+  string[],
+  string[],
+  string
+] {
+  const { slice } = useAppStateManager<HeaderState>("header");
+
   const dates = ["2023-01-01", "2023-02-01", "2023-03-01"]; // Dates example
   const exams = ["OCT", "FI", "VF", "IOP-c", "BCVA"]; // Exams example
   const [anamnesi, setAnamnesi] = useState<string[]>([]);
-  const showInfoAreaCls = state.showInfoArea
+  const showInfoAreaCls = slice.showInfoArea
     ? " show-info-area"
     : " hide-info-area";
 
-  return [state, dates, exams, anamnesi, showInfoAreaCls];
+  return [slice, dates, exams, anamnesi, showInfoAreaCls];
 }

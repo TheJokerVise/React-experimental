@@ -1,14 +1,15 @@
 import React from "react";
 import "../css/header.scss";
-import { useDispatch, useSelector } from "react-redux";
 import {
   activateDiagnosis,
   activateFollowUp,
   showInfoArea,
 } from "../store/store";
+import { useAppStateManager } from "../services/AppStateManager";
+import { HeaderState } from "../models/HeaderState";
 
 export const Header: React.FC = (): JSX.Element => {
-  const [state, dispatch] = useHeader();
+  const [appHeaderStore, dispatch] = useHeader();
 
   return (
     <header>
@@ -16,9 +17,11 @@ export const Header: React.FC = (): JSX.Element => {
         <div className="show-info-area">
           <button
             onClick={() => {
-              dispatch(showInfoArea({ showInfoArea: !state.showInfoArea }));
+              dispatch(
+                showInfoArea({ showInfoArea: !appHeaderStore.showInfoArea })
+              );
             }}
-            disabled={state.disableShowInfoBtn}
+            disabled={appHeaderStore.disableShowInfoBtn}
           >
             Show info
           </button>
@@ -52,9 +55,8 @@ export const Header: React.FC = (): JSX.Element => {
   );
 };
 
-function useHeader(): [any, any] {
-  const state = useSelector((state: any) => state);
-  const dispatch = useDispatch();
+function useHeader(): [HeaderState, any] {
+  const { dispatch, slice } = useAppStateManager<HeaderState>("header");
 
-  return [state, dispatch];
+  return [slice as HeaderState, dispatch];
 }
