@@ -42,6 +42,7 @@ export const DiagnosisArea: React.FC = (): JSX.Element => {
 };
 
 function UseDiagnosisArea(): [any, string[], string[], string[], string] {
+  const user = useSelector((state: any) => state.user);
   const state = useSelector((state: any) => state);
   const dates = ["2023-01-01", "2023-02-01", "2023-03-01"]; // Dates example
   const exams = ["OCT", "FI", "VF", "IOP-c", "BCVA"]; // Exams example

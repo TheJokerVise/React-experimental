@@ -1,6 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+// Primo slice
+const initialAppState = {
   showInfoArea: false,
   disableShowInfoBtn: false,
   diagnosisIsActive: true,
@@ -10,7 +11,7 @@ const initialState = {
 
 const appSlice = createSlice({
   name: "app",
-  initialState,
+  initialState: initialAppState,
   reducers: {
     showInfoArea: (state, action) => {
       state.showInfoArea = action.payload.showInfoArea;
@@ -30,11 +31,34 @@ const appSlice = createSlice({
   },
 });
 
+// Secondo slice
+const initialUserState = {
+  name: "",
+  age: 0,
+};
+
+const userSlice = createSlice({
+  name: "user",
+  initialState: initialUserState,
+  reducers: {
+    setName: (state, action) => {
+      state.name = action.payload.name;
+    },
+    setAge: (state, action) => {
+      state.age = action.payload.age;
+    },
+  },
+});
+
 export const { showInfoArea, activateDiagnosis, activateFollowUp } =
   appSlice.actions;
+export const { setName, setAge } = userSlice.actions;
 
 const store = configureStore({
-  reducer: appSlice.reducer,
+  reducer: {
+    app: appSlice.reducer,
+    user: userSlice.reducer,
+  },
 });
 
 export default store;
