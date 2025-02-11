@@ -7,9 +7,12 @@ import {
 } from "../store/store";
 import { useAppStateManager } from "../services/AppStateManager";
 import { HeaderState } from "../models/HeaderState";
+import { createSignal } from "solid-js";
 
 export const Header: React.FC = (): JSX.Element => {
   const [appHeaderStore, dispatch] = useHeader();
+
+  const [count, setCount] = createSignal(0);
 
   return (
     <header>
