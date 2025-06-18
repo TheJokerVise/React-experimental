@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAppStateManager } from "../../services/AppStateManager";
 import { HeaderState } from "../../models/HeaderState";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export const DiagnosisArea: React.FC = (): JSX.Element => {
   const [appHeaderStore, dates, exams, anamnesi, showInfoAreaCls] =
