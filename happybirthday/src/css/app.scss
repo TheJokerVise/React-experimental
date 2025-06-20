@@ -1,14 +1,14 @@
-/* Caveat */
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap");
+// /* Caveat */
+// @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap");
 
-/* Quicksand */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+// /* Quicksand */
+// @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
 
-/* Baloo */
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
+// /* Baloo */
+// @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
 
-/* Fredoka One */
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+// /* Fredoka One */
+// @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
 /* Pacifico */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
@@ -16,6 +16,7 @@
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
   /* Comic Sans MS (font di sistema, non serve import) */
   // font-family: "Comic Sans MS", "Comic Sans", cursive;
 
@@ -55,4 +56,34 @@ body {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
   }
+}
+
+#bubble-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bubble {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 200, 255, 0.7);
+  border-radius: 50%;
+  animation: floatUp 3s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0.7;
+  }
+}
+
+.explode {
+  background: red !important;
+  transform: scale(2);
+  opacity: 0;
+  transition: all 0.3s ease-out;
 }
