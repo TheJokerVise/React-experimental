@@ -29,6 +29,11 @@ body {
   font-family: "Pacifico", cursive;
 
   // font-family: "Caveat", cursive;
+  background-image: url("../backgrounds/beagle-and-dogs-pink.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .hb-eleo {
@@ -36,8 +41,6 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #c95468;
-  color: #ffe5e5;
   margin: 0;
 
   .hb-eleo-container {
@@ -45,7 +48,6 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 
     .hb-eleo-title {
@@ -53,7 +55,7 @@ body {
       font-size: 3rem;
       font-weight: 700;
       font-family: "Pacifico", cursive;
-      color: #ffe5e5;
+      color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
   }
