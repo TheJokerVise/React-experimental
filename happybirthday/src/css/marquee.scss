@@ -5,30 +5,43 @@
   border-bottom: 3px solid #f4c2c2;
   margin: 1rem 0;
   padding: 1rem 0;
-}
-
-.marquee {
+  width: 100%;
+  height: 50px;
   display: flex;
-  width: max-content;
-  animation: scroll 5s linear infinite;
-  animation-direction: normal;
+  flex-direction: column;
+  align-items: center;
 
-  .reverse {
-    animation-direction: reverse;
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+    animation-direction: normal;
+    height: 100%;
+    align-items: center;
+
+    img,
+    .marquee-message {
+      height: 100%;
+      margin: 0 20px;
+      filter: drop-shadow(1px 1px 1px #e0b0b0);
+    }
   }
-}
 
-.marquee img {
-  height: 60px;
-  margin: 0 20px;
-  filter: drop-shadow(1px 1px 1px #e0b0b0);
+  &.reverse {
+    .marquee {
+      display: flex;
+      width: max-content;
+      animation: scroll 10s linear infinite;
+      animation-direction: reverse;
+    }
+  }
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }

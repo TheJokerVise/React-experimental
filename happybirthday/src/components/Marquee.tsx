@@ -15,7 +15,13 @@ export const Marquee: React.FC<MarqueeProps> = ({
           [...icons, ...icons].map((src, index) => (
             <img key={index} src={src} alt={`Icona vintage ${index}`} />
           ))}
-        {message && <div className="marquee-message">{message}</div>}
+        {message && (
+          <>
+            <div className="marquee-message">{message}</div>
+            <div className="marquee-message">{message}</div>
+            <div className="marquee-message">{message}</div>
+          </>
+        )}
       </div>
     </div>
   );
