@@ -7,10 +7,25 @@ function App() {
       <div className="hb-eleo-container">
         <Marquee message="Happy Birthday Eleo!" />
         <div className="hb-eleo-title">
-          Lunedì 4 Agosto festeggio il mio primo compleanno!!!
+          <svg viewBox="0 0 500 200">
+            <path
+              id="arc"
+              d="M 50 150 A 200 100 0 0 1 450 150"
+              fill="transparent"
+              // stroke="lightgray"
+              // stroke-dasharray="5,5"
+            />
+
+            <text>
+              <textPath href="#arc" startOffset="50%" text-anchor="middle">
+                Il mio primo compleanno!!!
+              </textPath>
+            </text>
+          </svg>
         </div>
         <div className="hb-eleo-title">
-          Ti aspetto nel mio giardino a partire dalle 18:00
+          Ti aspetto nel mio giardino a partire dalle 18:00 per festeggiare
+          insieme!
         </div>
       </div>
     </div>
