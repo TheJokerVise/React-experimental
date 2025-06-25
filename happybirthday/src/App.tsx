@@ -2,8 +2,41 @@ import { Marquee } from "./components/Marquee";
 import "./css/app.scss";
 
 function App() {
+  function startCascade() {
+    const container = document.getElementById("container");
+    if (container) {
+      container.innerHTML = ""; // reset
+    }
+
+    const imageUrls = [
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+      "/images/smack_no_back.png",
+    ];
+
+    imageUrls.forEach((url, index) => {
+      setTimeout(() => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.className = "falling-image";
+        img.style.left = `${20 + index * 20}%`; // distribuzione orizzontale
+        if (container) container.appendChild(img);
+      }, index * 400); // intervallo a cascata
+    });
+  }
+
   return (
     <div className="hb-eleo">
+      <div
+        id="container"
+        className="hb-eleo-cascade-container image-container"
+      ></div>
       <div className="hb-eleo-container">
         <img
           className="oliver"
@@ -28,7 +61,7 @@ function App() {
             />
 
             <text>
-              <textPath href="#arc" startOffset="50%" text-anchor="middle">
+              <textPath href="#arc" startOffset="50%" textAnchor="middle">
                 Il mio primo compleanno!!!
               </textPath>
             </text>
@@ -37,6 +70,11 @@ function App() {
         <div className="hb-eleo-title">
           Ti aspetto nel mio giardino a partire dalle 18:00 per festeggiare
           insieme!
+        </div>
+        <div className="button-container">
+          <button className="button" onClick={() => startCascade()}>
+            Kiss
+          </button>
         </div>
       </div>
     </div>
