@@ -29,10 +29,10 @@ body {
   font-family: "Pacifico", cursive;
 
   // font-family: "Caveat", cursive;
-  background-image: url("../backgrounds/cute-dogs-pink.jpeg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background-image: url("../backgrounds/arches.png");
+  background-size: auto;
+  background-repeat: repeat;
+  background-color: #f8c2c5;
   height: 100vh;
 }
 
@@ -42,7 +42,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  background: #0000ff30;
+  position: relative;
 
   .hb-eleo-container {
     width: 100%;
@@ -50,6 +50,20 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    .oliver {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      width: 150px;
+    }
+
+    .oliver-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 50px;
+      width: 150px;
+    }
 
     .hb-eleo-title {
       text-align: center;

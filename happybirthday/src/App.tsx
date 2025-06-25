@@ -5,6 +5,17 @@ function App() {
   return (
     <div className="hb-eleo">
       <div className="hb-eleo-container">
+        <img
+          className="oliver"
+          src="/images/beagle_1_no_back.png"
+          alt="Oliver"
+        />
+
+        <img
+          className="oliver-bottom"
+          src="/images/beagle_2_no_back.png"
+          alt="Oliver"
+        />
         <Marquee message="Happy Birthday Eleo!" />
         <div className="hb-eleo-title">
           <svg viewBox="0 0 500 200">
