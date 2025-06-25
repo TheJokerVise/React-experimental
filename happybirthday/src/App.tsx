@@ -25,7 +25,7 @@ function App() {
         const img = document.createElement("img");
         img.src = url;
         img.className = "falling-image";
-        img.style.left = `${20 + index * 20}%`; // distribuzione orizzontale
+        img.style.left = `${5 + index * 20}%`; // distribuzione orizzontale
         if (container) container.appendChild(img);
       }, index * 400); // intervallo a cascata
     });
@@ -49,6 +49,19 @@ function App() {
           src="/images/beagle_2_no_back.png"
           alt="Oliver"
         />
+
+        <img
+          className="accessory_1"
+          src="/images/accessories_1.png"
+          alt="Accessory 1"
+        />
+
+        <img
+          className="accessory_2"
+          src="/images/accessories_2.png"
+          alt="Accessory 2"
+        />
+
         <Marquee message="Happy Birthday Eleo!" />
         <div className="hb-eleo-title">
           <svg viewBox="0 0 500 200">

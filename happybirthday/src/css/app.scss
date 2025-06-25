@@ -113,10 +113,25 @@ body {
     flex-direction: column;
     z-index: 2;
     justify-content: space-between;
+    padding-bottom: 20px;
 
     .oliver {
       position: absolute;
       top: 50px;
+      right: 50px;
+      width: 150px;
+    }
+
+    .accessory_1 {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: 150px;
+    }
+
+    .accessory_2 {
+      position: absolute;
+      bottom: 50px;
       right: 50px;
       width: 150px;
     }
@@ -148,11 +163,12 @@ body {
   }
 
   .button {
-    background: #6200ea;
+    background: #ea00bb;
     color: white;
     padding: 1rem 2rem;
     border-radius: 2rem;
     transition: 0.3s ease;
+    cursor: pointer;
   }
 
   .button:hover {
