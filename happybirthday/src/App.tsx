@@ -38,11 +38,11 @@ function App() {
         className="hb-eleo-cascade-container image-container"
       ></div>
       <div className="hb-eleo-container">
-        <img
+        {/* <img
           className="oliver"
           src="/images/beagle_1_no_back.png"
           alt="Oliver"
-        />
+        /> */}
 
         <img
           className="oliver-bottom"
@@ -50,7 +50,7 @@ function App() {
           alt="Oliver"
         />
 
-        <img
+        {/* <img
           className="accessory_1"
           src="/images/accessories_1.png"
           alt="Accessory 1"
@@ -60,10 +60,10 @@ function App() {
           className="accessory_2"
           src="/images/accessories_2.png"
           alt="Accessory 2"
-        />
+        /> */}
 
         <Marquee message="Happy Birthday Eleo!" />
-        <div className="hb-eleo-title">
+        {/* <div className="hb-eleo-title">
           <svg viewBox="0 0 500 200">
             <path
               id="arc"
@@ -83,7 +83,7 @@ function App() {
         <div className="hb-eleo-title">
           Ti aspetto nel mio giardino a partire dalle 18:00 per festeggiare
           insieme!
-        </div>
+        </div> */}
         <div className="button-container">
           <button className="button" onClick={() => startCascade()}>
             Kiss
