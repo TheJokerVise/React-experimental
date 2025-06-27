@@ -84,6 +84,22 @@ function App() {
           Ti aspetto nel mio giardino a partire dalle 18:00 per festeggiare
           insieme!
         </div> */}
+        <div className="text-section">
+          <div className="invitation-text chewy rem2">CIAO!</div>
+          <div className="date-text chewy rem3">Lunedì 4 Agosto</div>
+          <div className="invitation-text chewy rem2">
+            TI ASPETTO PER FESTEGGIARE IL MIO
+          </div>
+          <div className="hb-eleo-title">
+            <div className="birthday-counter-container">
+              <img src="/images/1_.png" alt="One" />
+            </div>
+            <div className="simple-text chewy rem5">compleanno</div>
+          </div>
+          <div className="invitation-text chewy rem2">
+            NEL MIO GIARDINO A PARTIRE DALLE ORE 18:00!
+          </div>
+        </div>
         <div className="button-container">
           <button className="button" onClick={() => startCascade()}>
             Kiss

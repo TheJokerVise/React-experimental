@@ -29,11 +29,61 @@ body {
   font-family: "Pacifico", cursive;
 
   // font-family: "Caveat", cursive;
-  background-image: url("../backgrounds/hb-party.jpeg");
-  background-size: auto;
-  background-repeat: repeat;
-  background-color: #f8c2c5;
+  // background-image: url("../backgrounds/hb-back.jpeg");
+  // background-size: auto;
+  // background-repeat: repeat;
+  background-color: white;
   height: 100vh;
+}
+
+.luckiest {
+  font-family: "Luckiest Guy", cursive;
+  color: #f44336;
+}
+.baloo {
+  font-family: "Baloo 2", cursive;
+  color: #4caf50;
+}
+.fredoka {
+  font-family: "Fredoka One", cursive;
+  color: #3f51b5;
+}
+.chewy {
+  font-family: "Chewy", cursive;
+  color: #c8716e;
+}
+.bangers {
+  font-family: "Bangers", cursive;
+  color: #e91e63;
+}
+.mountains {
+  font-family: "Mountains of Christmas", cursive;
+  color: #9c27b0;
+}
+.amatic {
+  font-family: "Amatic SC", cursive;
+  color: #009688;
+  font-size: 1.8rem;
+}
+
+.rem5 {
+  font-size: 5rem;
+}
+
+.rem4 {
+  font-size: 4rem;
+}
+
+.rem3 {
+  font-size: 3rem;
+}
+
+.rem25 {
+  font-size: 2.5rem;
+}
+
+.rem2 {
+  font-size: 2rem;
 }
 
 .hb-eleo {
@@ -145,11 +195,25 @@ body {
 
     .hb-eleo-title {
       text-align: center;
-      font-size: 2.5rem;
       font-weight: 700;
-      font-family: "Pacifico", cursive;
-      color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+
+      .birthday-counter-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 80%;
+        }
+      }
+
+      .simple-text {
+        color: #eea9ac;
+      }
     }
   }
 
@@ -174,5 +238,87 @@ body {
   .button:hover {
     transform: scale(1.1) rotate(-2deg);
     box-shadow: 0 0 10px #6200ea;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    background-size: cover;
+  }
+
+  .hb-eleo {
+    .hb-eleo-cascade-container {
+      .falling-image {
+        width: 70px;
+      }
+    }
+
+    .hb-eleo-container {
+      padding-bottom: 10px;
+
+      .oliver {
+        width: 80px;
+        top: 20px;
+        right: 10px;
+      }
+
+      .accessory_1,
+      .accessory_2 {
+        width: 80px;
+        top: 20px;
+        left: 10px;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .oliver-bottom {
+        position: absolute;
+        bottom: -50px;
+        left: 0px;
+        width: 180px;
+      }
+
+      .text-section {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+
+        .hb-eleo-title {
+          border-radius: 10px;
+          padding: 10px 0;
+        }
+
+        .invitation-text {
+          font-size: 2rem;
+          text-align: center;
+          background: white;
+          border-radius: 10px;
+          padding: 5px 10px;
+        }
+
+        .date-text {
+          border-radius: 10px;
+          padding: 5px 10px;
+          text-align: center;
+          font-weight: 700;
+
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+
+    svg {
+      height: 180px;
+    }
+
+    .button {
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+    }
   }
 }
