@@ -1,35 +1,45 @@
 import { Marquee } from "./components/Marquee";
 import "./css/app.scss";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Importa gli stili di AOS
 
 function App() {
-  function startCascade() {
-    const container = document.getElementById("container");
-    if (container) {
-      container.innerHTML = ""; // reset
-    }
+  // function startCascade() {
+  //   const container = document.getElementById("container");
+  //   if (container) {
+  //     container.innerHTML = ""; // reset
+  //   }
 
-    const imageUrls = [
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-      "/images/smack_no_back.png",
-    ];
+  //   const imageUrls = [
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //     "/images/smack_no_back.png",
+  //   ];
 
-    imageUrls.forEach((url, index) => {
-      setTimeout(() => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.className = "falling-image";
-        img.style.left = `${5 + index * 20}%`; // distribuzione orizzontale
-        if (container) container.appendChild(img);
-      }, index * 400); // intervallo a cascata
+  //   imageUrls.forEach((url, index) => {
+  //     setTimeout(() => {
+  //       const img = document.createElement("img");
+  //       img.src = url;
+  //       img.className = "falling-image";
+  //       img.style.left = `${5 + index * 20}%`; // distribuzione orizzontale
+  //       if (container) container.appendChild(img);
+  //     }, index * 400); // intervallo a cascata
+  //   });
+  // }
+
+  useEffect(() => {
+    AOS.init({
+      duration: 500, // durata dell'animazione in ms
+      once: true, // se TRUE, l'animazione avviene solo una volta
     });
-  }
+  }, []);
 
   return (
     <div className="hb-eleo">
@@ -38,52 +48,16 @@ function App() {
         className="hb-eleo-cascade-container image-container"
       ></div>
       <div className="hb-eleo-container">
-        {/* <img
-          className="oliver"
-          src="/images/beagle_1_no_back.png"
-          alt="Oliver"
-        /> */}
-
         <img
           className="oliver-bottom"
           src="/images/beagle_2_no_back.png"
           alt="Oliver"
+          data-aos="fade-up"
+          data-aos-delay="1000"
         />
-
-        {/* <img
-          className="accessory_1"
-          src="/images/accessories_1.png"
-          alt="Accessory 1"
-        />
-
-        <img
-          className="accessory_2"
-          src="/images/accessories_2.png"
-          alt="Accessory 2"
-        /> */}
 
         <Marquee message="Happy Birthday Eleo!" />
-        {/* <div className="hb-eleo-title">
-          <svg viewBox="0 0 500 200">
-            <path
-              id="arc"
-              d="M 50 150 A 200 100 0 0 1 450 150"
-              fill="transparent"
-              // stroke="lightgray"
-              // stroke-dasharray="5,5"
-            />
 
-            <text>
-              <textPath href="#arc" startOffset="50%" textAnchor="middle">
-                Il mio primo compleanno!!!
-              </textPath>
-            </text>
-          </svg>
-        </div>
-        <div className="hb-eleo-title">
-          Ti aspetto nel mio giardino a partire dalle 18:00 per festeggiare
-          insieme!
-        </div> */}
         <div className="text-section">
           <div className="invitation-text chewy rem2">CIAO!</div>
           <div className="date-text chewy rem3">Lunedì 4 Agosto</div>
@@ -100,11 +74,11 @@ function App() {
             NEL MIO GIARDINO A PARTIRE DALLE ORE 18:00!
           </div>
         </div>
-        <div className="button-container">
+        {/* <div className="button-container">
           <button className="button" onClick={() => startCascade()}>
             Kiss
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
