@@ -53,25 +53,25 @@ function App() {
           src="/images/beagle_2_no_back.png"
           alt="Oliver"
           data-aos="fade-up"
-          data-aos-delay="1000"
+          data-aos-delay="3000"
         />
 
-        <Marquee message="Happy Birthday Eleo!" />
+        {/* <Marquee message="Happy Birthday Eleo!" /> */}
 
         <div className="text-section">
-          <div className="invitation-text chewy rem2">CIAO!</div>
-          <div className="date-text chewy rem3">Lunedì 4 Agosto</div>
+          <div className="invitation-text chewy rem2">Ciao!</div>
+          <div className="date-text chewy rem3">LUNEDì 4 AGOSTO</div>
           <div className="invitation-text chewy rem2">
-            TI ASPETTO PER FESTEGGIARE IL MIO
+            ti aspetto per festeggiare il mio
           </div>
           <div className="hb-eleo-title">
             <div className="birthday-counter-container">
               <img src="/images/1_.png" alt="One" />
             </div>
-            <div className="simple-text chewy rem5">compleanno</div>
+            <div className="simple-text chewy rem3">compleanno</div>
           </div>
           <div className="invitation-text chewy rem2">
-            NEL MIO GIARDINO A PARTIRE DALLE ORE 18:00!
+            nel mio giardino a partire dalle 18:30!
           </div>
         </div>
         {/* <div className="button-container">

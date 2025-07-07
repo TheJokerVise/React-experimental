@@ -171,7 +171,8 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      row-gap: 10px;
+      row-gap: 5px;
+      padding-bottom: 100px;
 
       .hb-eleo-title {
         text-align: center;
@@ -193,15 +194,24 @@ body {
 
         .simple-text {
           color: #eea9ac;
+          width: auto;
+          margin: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px 10px;
+          border-radius: 10px;
+          text-shadow: 1px 1px 2px #000000; /* ombra nera sottile */
         }
       }
 
       .invitation-text {
         font-size: 2rem;
         text-align: center;
-        background: white;
         border-radius: 10px;
         padding: 5px 10px;
+        color: #eea9ac;
+        text-shadow: 1px 1px 2px #000000; /* ombra nera sottile */
       }
 
       .date-text {
@@ -211,6 +221,7 @@ body {
         font-weight: 700;
         color: #eea9ac;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        text-shadow: 1px 1px 2px #000000; /* ombra nera sottile */
       }
     }
 
@@ -312,7 +323,7 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        row-gap: 20px;
+        row-gap: 5px;
 
         .hb-eleo-title {
           text-align: center;
@@ -340,7 +351,6 @@ body {
         .invitation-text {
           font-size: 2rem;
           text-align: center;
-          background: white;
           border-radius: 10px;
           padding: 5px 10px;
         }
@@ -350,8 +360,6 @@ body {
           padding: 5px 10px;
           text-align: center;
           font-weight: 700;
-
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
       }
     }
