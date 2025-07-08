@@ -1,4 +1,3 @@
-import { Marquee } from "./components/Marquee";
 import "./css/app.scss";
 import { useEffect } from "react";
 import AOS from "aos";
