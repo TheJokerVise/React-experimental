@@ -33,6 +33,35 @@ function App() {
   //   });
   // }
 
+  const container = document.getElementById("balloon-container");
+
+  function createBalloon() {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+
+    // Posizione orizzontale casuale
+    balloon.style.left = Math.random() * 100 + "vw";
+
+    // Colore casuale
+    const colors = ["#ff69b4", "#00bfff", "#adff2f", "#ffa07a", "#9370db"];
+    balloon.style.backgroundColor =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    // Durata e ritardo casuali
+    const duration = 4 + Math.random() * 4;
+    balloon.style.animationDuration = duration + "s";
+
+    if (container) container.appendChild(balloon);
+
+    // Rimuovi il palloncino dopo che ha finito di salire
+    setTimeout(() => {
+      balloon.remove();
+    }, duration * 1000);
+  }
+
+  // Crea un palloncino ogni 300ms
+  setInterval(createBalloon, 300);
+
   useEffect(() => {
     AOS.init({
       duration: 500, // durata dell'animazione in ms
@@ -46,6 +75,7 @@ function App() {
         id="container"
         className="hb-eleo-cascade-container image-container"
       ></div>
+      <div id="balloon-container" className="hb-eleo-balloon-container"></div>
       <div className="hb-eleo-container">
         <img
           className="oliver-bottom"
