@@ -33,34 +33,69 @@ function App() {
   //   });
   // }
 
-  const container = document.getElementById("balloon-container");
+  setTimeout(() => {
+    createBalloon();
+    // Genera palloncini ogni 300ms
+    setInterval(createBalloon, 300);
+  }, 1000); // Ritardo iniziale per l'effetto di caricamento
 
   function createBalloon() {
+    const container = document.getElementById("balloon-container");
+
+    // Carica suono
+    // const popSound = new Audio("pop.mp3");
     const balloon = document.createElement("div");
     balloon.classList.add("balloon");
 
-    // Posizione orizzontale casuale
+    // Posizione e colore casuali
     balloon.style.left = Math.random() * 100 + "vw";
-
-    // Colore casuale
     const colors = ["#ff69b4", "#00bfff", "#adff2f", "#ffa07a", "#9370db"];
     balloon.style.backgroundColor =
       colors[Math.floor(Math.random() * colors.length)];
 
-    // Durata e ritardo casuali
+    // Durata casuale
     const duration = 4 + Math.random() * 4;
     balloon.style.animationDuration = duration + "s";
 
+    // Click: scoppio
+    balloon.addEventListener("click", () => {
+      console.log("Balloon popped!");
+      balloon.classList.add("pop");
+      balloon.style.pointerEvents = "none";
+
+      // Suono
+      // popSound.currentTime = 0; // Riavvia se già in riproduzione
+      // popSound.play();
+
+      // Messaggio auguri
+      const message = document.createElement("span");
+      message.classList.add("popup-message");
+      message.textContent = "Auguri! 🎉";
+
+      // Posizione del messaggio
+      message.style.left = balloon.style.left;
+      message.style.top = balloon.getBoundingClientRect().top + "px";
+
+      if (container) container.appendChild(message);
+
+      // Rimuovi messaggio dopo 1.5s
+      setTimeout(() => {
+        message.remove();
+      }, 1500);
+
+      // Rimuovi palloncino dopo scoppio
+      setTimeout(() => {
+        balloon.remove();
+      }, 300);
+    });
+
     if (container) container.appendChild(balloon);
 
-    // Rimuovi il palloncino dopo che ha finito di salire
+    // Rimuovi automaticamente dopo la salita
     setTimeout(() => {
-      balloon.remove();
+      if (balloon.parentElement) balloon.remove();
     }, duration * 1000);
   }
-
-  // Crea un palloncino ogni 300ms
-  setInterval(createBalloon, 300);
 
   useEffect(() => {
     AOS.init({
